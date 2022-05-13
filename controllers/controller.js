@@ -8,8 +8,6 @@ const createData = async (req, res) => {
         age: req.body.age,
     });
 
-    console.log(req.body);
-
     //we call the .save() method to save data to db
     try {
         const dataToSve = await data.save();
