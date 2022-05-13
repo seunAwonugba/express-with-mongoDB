@@ -25,12 +25,20 @@ const createData = async (req, res) => {
     }
 };
 
-const getAllData = (req, res) => {
-    console.log(res);
-    res.status(200).json({
-        success: true,
-        data: "get all data from db",
-    });
+//fetch all data from database using the .find() method
+const getAllData = async (req, res) => {
+    try {
+        const dataToFetch = await Model.find();
+        res.status(200).json({
+            success: true,
+            data: dataToFetch,
+        });
+    } catch (err) {
+        res.status(400).json({
+            success: false,
+            data: "Resource not found",
+        });
+    }
 };
 
 const getDataById = (req, res) => {
