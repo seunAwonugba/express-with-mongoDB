@@ -13,4 +13,6 @@ const projectSchema = new mongoose.Schema({
 });
 
 //create/ convert schema to model, and export your model
+//format mongoose.model("model_name", schema)
+//import model inside controller
 module.exports = mongoose.model("Data", projectSchema);
